@@ -3,11 +3,12 @@ import react from '@vitejs/plugin-react'
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: process.env.GITHUB_ACTIONS ? '/oshhouse/' : '/',
+  base: process.env.GITHUB_PAGES === 'true' ? '/oshhouse/' : '/',
   plugins: [react()],
   server: {
     host: true,
     port: 5173,
+    strictPort: false,
   },
   preview: {
     host: true,
