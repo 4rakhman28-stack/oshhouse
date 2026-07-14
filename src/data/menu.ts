@@ -1,5 +1,7 @@
 import type { MenuItem } from '../types';
 
+const img = (file: string) => `${import.meta.env.BASE_URL}images/${file}?v=2`;
+
 export const categories = [
   { id: 'all' as const, label: 'Все блюда' },
   { id: 'main' as const, label: 'Горячее' },
@@ -26,7 +28,7 @@ export const menuItems: MenuItem[] = [
     description: 'Домашняя лапша в насыщенном бульоне с говядиной, овощами и специями.',
     price: 380,
     category: 'main',
-    image: '/images/lagman.png',
+    image: img('lagman.png'),
     weight: '400 г',
   },
   {
@@ -35,7 +37,7 @@ export const menuItems: MenuItem[] = [
     description: 'Парные манты с сочной начинкой, подаются со сметаной и томатным соусом.',
     price: 320,
     category: 'main',
-    image: '/images/manti.png',
+    image: img('manti.png'),
     badge: 'Новинка',
     weight: '5 шт',
   },
@@ -72,7 +74,7 @@ export const menuItems: MenuItem[] = [
     description: 'Хрустящая самса из тандыра с сочной тыквенной начинкой.',
     price: 120,
     category: 'bakery',
-    image: '/images/samsa.png',
+    image: img('samsa.png'),
     badge: 'Хит',
     weight: '1 шт',
   },
@@ -82,7 +84,7 @@ export const menuItems: MenuItem[] = [
     description: 'Классическая сомса с говядиной, луком и специями из тандыра.',
     price: 140,
     category: 'bakery',
-    image: '/images/samsa-meat.png',
+    image: img('samsa-meat.png'),
     weight: '1 шт',
   },
   {
