@@ -1,3 +1,5 @@
+import { PwaInstallButton } from './PwaInstallButton';
+
 export function Hero() {
   return (
     <section className="hero">
@@ -5,6 +7,7 @@ export function Hero() {
       <div className="container hero__content">
         <div className="hero__text">
           <span className="hero__label">Доставка по городу за 45 минут</span>
+          <PwaInstallButton />
           <h1>
             Вкус <em>Узбекистана</em> у вас дома
           </h1>
