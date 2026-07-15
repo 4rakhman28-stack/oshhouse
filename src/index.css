@@ -31,6 +31,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
@@ -39,6 +40,13 @@ body {
   color: var(--color-text);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+#root {
+  overflow-x: hidden;
+  max-width: 100%;
 }
 
 img {
@@ -59,8 +67,10 @@ button {
 }
 
 .container {
-  width: min(1200px, 100% - 2rem);
+  width: 100%;
+  max-width: 1200px;
   margin-inline: auto;
+  padding-inline: 1rem;
 }
 
 /* Buttons */
@@ -428,7 +438,7 @@ button {
 
 .menu-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr));
   gap: 1.5rem;
 }
 
@@ -541,7 +551,7 @@ button {
 
 .features__grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
   gap: 1.5rem;
 }
 
@@ -988,16 +998,24 @@ button {
 
   .hero__visual {
     order: -1;
+    max-width: 100%;
   }
 
   .hero__card--main img {
     height: 280px;
   }
 
+  .hero__stats {
+    flex-wrap: wrap;
+    gap: 1.25rem 2rem;
+  }
+
   .hero__card--float {
-    left: auto;
-    right: 10px;
-    bottom: -10px;
+    left: 1rem;
+    right: 1rem;
+    bottom: 1rem;
+    width: auto;
+    max-width: calc(100% - 2rem);
   }
 
   .delivery__inner {
@@ -1016,9 +1034,49 @@ button {
   }
 }
 
+@media (max-width: 640px) {
+  .menu-grid,
+  .features__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .menu-section,
+  .features,
+  .delivery {
+    padding: 3.5rem 0;
+  }
+
+  .categories {
+    gap: 0.4rem;
+  }
+
+  .category-btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+  }
+
+  .menu-card__top h3 {
+    font-size: 1rem;
+  }
+
+  .menu-card__footer {
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+}
+
 @media (max-width: 480px) {
   .hero {
-    padding-top: 6rem;
+    padding: 6rem 0 3rem;
+  }
+
+  .hero__text h1 {
+    font-size: clamp(1.75rem, 8vw, 2.5rem);
+    word-break: break-word;
+  }
+
+  .hero__text > p {
+    font-size: 1rem;
   }
 
   .hero__stats {
@@ -1032,5 +1090,29 @@ button {
 
   .hero__actions .btn {
     width: 100%;
+  }
+
+  .hero__card--float {
+    left: 0.75rem;
+    right: 0.75rem;
+    bottom: 0.75rem;
+    padding: 0.875rem 1rem;
+  }
+
+  .header__inner {
+    height: 64px;
+  }
+
+  .logo__name {
+    font-size: 1.1rem;
+  }
+
+  .logo__tagline {
+    display: none;
+  }
+
+  .cart-btn {
+    width: 44px;
+    height: 44px;
   }
 }
